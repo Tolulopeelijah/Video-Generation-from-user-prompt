@@ -1,22 +1,25 @@
-from groq import groq
-from dataclasses import dataclass, enum
+from groq import Groq
+from dataclasses import dataclass
+from enum import Enum
 
-@enum
-class difficulty:
-    "BEGINNER"
-    "INTERMEDIATE"
-    "ADVANCED"
 
-@enum
-class PromptType:
-    "EXPLAINATION" # explaining a topic
+class Difficulty(Enum):
+    BEGINNER = "explain like I am completely new to this domain and have very basic knowledge beforehand"
+    INTERMEDIATE = "I am convenient with some prerequisite knowledge, but not strong enough knowledge about the topic"
+    ADVANCED = "I have some limited knowledge about the subject topic already, I only need more clarification and better understanding"
+
+
+class PromptType(Enum):
+    EXPLANATION = "EXPLANATION" # explaining a topic
+    QUESTION = "QUESTION" # asking a question
     
 
 @dataclass
 class PromptConfig:
-    difficulty: str,
-    num_tokens: int,
-    prompt
+    difficulty: Difficulty
+    num_tokens: int
+    prompt_type: PromptType
+    content: str
 
 
 client = Groq()
