@@ -58,7 +58,7 @@ def generate_content(prompt: str) -> str:
     messages = [
 
         {
-            "role": "user",
+            "role": "system",
             "content": SYSTEMS_PROMPT
         },
 
