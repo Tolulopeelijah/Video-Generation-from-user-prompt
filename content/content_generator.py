@@ -76,7 +76,7 @@ def generate_content(prompt: str) -> str:
         temperature=0.7,
         top_p=1
     )
-    return completions[0].message.content)
+    return completions[0].message.content
 
 
 
